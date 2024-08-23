@@ -1,0 +1,45 @@
+    section {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+
+      align-items: center;
+    }
+
+    img {
+      width: 187px;
+      height: 160px;
+      object-fit: cover;
+      background-color: rgb(194, 194, 194);
+
+      &:hover {
+        transform: scale(0.98);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+
+    div {
+      width: 560px;
+      height: 160px;
+
+      display: flex;
+      gap: 4px;
+      margin: auto;
+      border: 1px solid black;
+
+    }
+
+    button {
+      width: 100px;
+      height: 40px;
+      margin: 10px 0 0 86px;
+      align-self: flex-start;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+    }
