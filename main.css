@@ -1,16 +1,23 @@
     section {
       display: flex;
       flex-flow: column nowrap;
+      max-width: 900px;
       justify-content: center;
-
       align-items: center;
+      overflow: hidden;
+    
+    }
+    article{
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     img {
       width: 187px;
       height: 160px;
       object-fit: cover;
-      background-color: rgb(194, 194, 194);
 
       &:hover {
         transform: scale(0.98);
@@ -22,21 +29,21 @@
     }
 
     div {
+      max-width: 560px;
       width: 560px;
       height: 160px;
 
       display: flex;
+      flex-flow: column wrap;
       gap: 4px;
-      margin: auto;
+      margin:40px auto;
+      padding: 30px;
       border: 1px solid black;
 
     }
 
     button {
-      width: 100px;
-      height: 40px;
-      margin: 10px 0 0 86px;
-      align-self: flex-start;
+      
 
       &:hover {
         opacity: 0.9;
