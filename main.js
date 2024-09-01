@@ -33,6 +33,40 @@ async function loadRandomMichis() {
   }
 
 }
+async function loadFavoritesMichis() {
+  
+  const res = await fetch(API_URL_FAVORITES);
+  const data = await res.json();
+  console.group('Favoritos ❤️');
+  console.log('status', res.status);
+  console.log(data);
+  
+  const h2 = document.createElement('h2')
+  h2.innerHTML = 'h';
+  section.append(h2)
+  
+  if (res.status != 200) {
+    spanError.innerHTML = "hubo un error " + res.status + data.messege;
+  }else {
+    data.forEach(michis => {
+      const h1 = document.createElement('h1')
+      const section = document.getElementById('MichisFavoritos');
+      const article = document.createElement('div');
+      const img = document.createElement('img');
+      const btn = document.createElement('button')
+
+      btn.textContent = 'Quitar de favoritos  ❌'
+      img.src = michis.image.url;
+      btn.onclick = deleteFavoriteMichi(michis.id)
+      article.appendChild(img)
+      article.appendChild(btn)
+
+      section.append(article)
+    });
+     
+  }
+  
+}
 
 loadRandomMichis();
 loadFavoritesMichis();
