@@ -45,7 +45,7 @@ async function loadFavoritesMichis() {
     section.innerHTML = "";
 
     const h2 = document.createElement('h2')
-    const h2Text = document.createTextNode('Michsi favoritos')
+    const h2Text = document.createTextNode('Michis Favoritos')
     h2.appendChild(h2Text)
     section.append(h2)
 
@@ -96,7 +96,6 @@ async function deleteFavoriteMichi(id) {
       'x-api-key': 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI'
     }
   });
-  // const data = await res.json()
 
   if (res.status != 200) {
     spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
