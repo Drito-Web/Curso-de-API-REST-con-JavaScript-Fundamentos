@@ -21,7 +21,12 @@ async function loadRandomMichis() {
     img1.src = data[0].url;
     img2.src = data[1].url;
 
-    
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+
+
+    btn1.onclick = () => saveFavoritesMichi(data[ 0 ].id);
+    btn2.onclick = () => saveFavoritesMichi(data[ 1 ].id);
    
   }
 
