@@ -93,5 +93,21 @@ async function saveFavoritesMichi(id) {
   
 }
 
+
+async function deleteFavoriteMichi(id) {
+  const res = await fetch(API_URL_FAVORITES_DELETE, {
+    method: 'DELETE',
+  })
+  const data = await res.json()
+
+  if (res.status != 200) {
+    spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
+  } else {
+    console.log('Michis eliminado de favorito');
+    loadFavoritesMichis()
+  }
+
+}
+
 loadRandomMichis();
 loadFavoritesMichis();
