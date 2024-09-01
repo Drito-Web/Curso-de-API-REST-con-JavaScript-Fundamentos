@@ -95,8 +95,8 @@ async function deleteFavoriteMichi(id) {
     headers: {
       'x-api-key': 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI'
     }
-  })
-  const data = await res.json()
+  });
+  // const data = await res.json()
 
   if (res.status != 200) {
     spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
