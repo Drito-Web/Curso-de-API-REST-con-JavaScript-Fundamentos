@@ -1,6 +1,6 @@
 const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI`;
-const API_URL_FAVORITES = `https://api.thecatapi.com/v1/favourites?api_key=live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI`;
-const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI`;
+const API_URL_FAVORITES = `https://api.thecatapi.com/v1/favourites`;
+const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 
 const spanError = document.getElementById('error');
 
@@ -27,7 +27,12 @@ async function loadRandomMichis() {
 }
 
 async function loadFavoritesMichis() {
-  const res = await fetch(API_URL_FAVORITES);
+  const res = await fetch(API_URL_FAVORITES,{
+    method: 'GET',
+    headers: {
+      'x-api-key': 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI',
+    }
+  });
   const data = await res.json();
   console.log('Favoritos ❤️');
   console.log(data);
@@ -64,6 +69,7 @@ async function saveFavoriteMichi(id) {
   const res = await fetch(API_URL_FAVORITES, {
     method: 'POST',
     headers: {
+      'x-api-key': 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -86,6 +92,9 @@ async function saveFavoriteMichi(id) {
 async function deleteFavoriteMichi(id) {
   const res = await fetch(API_URL_FAVORITES_DELETE(id), {
     method: 'DELETE',
+    headers: {
+      'x-api-key': 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI'
+    }
   })
   const data = await res.json()
 
