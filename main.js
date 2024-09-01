@@ -68,5 +68,30 @@ async function loadFavoritesMichis() {
   
 }
 
+async function saveFavoritesMichi(id) {
+  const res = await fetch(API_URL_FAVORITES, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      image_id: id
+    }),
+  })
+  const data = res.json()
+  console.log('Save Favorites!');
+  console.log(res);
+  console.log(data);
+  
+
+  if (res.status != 200) {
+    spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
+  }else {
+    console.log('Michis guardado en favorito');
+    loadFavoritesMichis()
+  }
+  
+}
+
 loadRandomMichis();
 loadFavoritesMichis();
