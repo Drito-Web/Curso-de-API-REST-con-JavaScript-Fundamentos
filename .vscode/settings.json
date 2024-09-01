@@ -1,0 +1,21 @@
+{
+  "editor.renderWhitespace": "selection",
+  "window.autoDetectColorScheme": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "editor.autoIndent": "full",
+  "editor.autoSurround": "languageDefined",
+  "editor.experimentalInlineEdit.enabled": false,
+  "editor.foldingImportsByDefault": false,
+  "editor.hideCursorInOverviewRuler": false,
+  "editor.inlayHints.padding": false,
+  "editor.inlineCompletionsAccessibilityVerbose": false,
+  "editor.mouseWheelZoom": false,
+  "editor.renderLineHighlightOnlyWhenFocus": false,
+  "editor.smoothScrolling": true,
+  "editor.stablePeek": false,
+  "editor.tabFocusMode": false,
+  "editor.unfoldOnClickAfterEndOfLine": false,
+  "html.format.indentHandlebars": false,
+  "html.format.indentInnerHtml": false
+}

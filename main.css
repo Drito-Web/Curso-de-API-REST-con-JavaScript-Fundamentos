@@ -1,52 +1,72 @@
+    h1{
+      text-align: center;
+    }
+    
     section {
       display: flex;
       flex-flow: column nowrap;
-      max-width: 900px;
+      max-width: 100%;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-    
+      margin:0 auto;
+      text-align: left;
     }
-    article{
+    #btnReload{
+      align-self: flex-start;
       display: flex;
-      flex-flow: column nowrap;
-      gap: 10px;
-      margin-bottom: 20px;
+      margin: 0 0 30px 90px;
+      justify-content: flex-start;
+    }
+    #MichisFavoritos {
+      display: flex;
+      height: auto;
+      flex-flow: column wrap;
     }
 
     img {
       width: 187px;
       height: 160px;
       object-fit: cover;
-
+      overflow: hidden;
       &:hover {
         transform: scale(0.98);
       }
-
       &:active {
         transform: scale(1);
       }
     }
 
-    div {
+    .container-article {
+      text-align: left;
       max-width: 560px;
       width: 560px;
-      height: 160px;
-
+      height: auto;
+      align-items: center;
+      justify-content: space-evenly;
       display: flex;
-      flex-flow: column wrap;
+      flex-flow: row wrap;
       gap: 4px;
-      margin:40px auto;
+      margin:auto;
       padding: 30px;
-      border: 1px solid black;
-
     }
 
     button {
-      
-
       &:hover {
         opacity: 0.9;
       }
-
     }
+    .my-box{
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      width: 100%;
+      max-height:100% ;
+      height: auto;text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+    }
+    

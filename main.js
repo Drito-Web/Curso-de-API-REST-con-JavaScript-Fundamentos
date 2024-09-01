@@ -1,23 +1,30 @@
-const API_URL = "https://api.thecatapi.com/v1/images/search?limit=3&&api_key=live_ZBuZrwg3MmKeg2ut46LciVMyiGu022BQJ0CXAy2A9U1jDEGScPUSoZu7WqjLAoz3";
+const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI`;
 
+const spanError = document.getElementById('error');
 
+async function loadRandomMichis() { 
 
-async function loadRandomMichis() {
-  
-  const res = await fetch(API_URL);
+  const res = await fetch(API_URL_RANDOM);
   const data = await res.json();
-  
+  console.group("Michis Randon 🦊") 
+  console.log('status',res.status);
   console.log(data);
-  
-  const img1 = document.querySelector('.img1');
-  const img2 = document.querySelector('.img2');
-  
-  img1.src = data[0].url;
-  img2.src = data[1].url;
-  
-  
-  
-  
+  console.groupEnd()
+
+  if (res.status != 200) {
+    spanError.innerHTML = "hubo un error " + res.status;
+  } else {
+
+    const img1 = document.querySelector('.img1');
+    const img2 = document.querySelector('.img2');
+    
+    img1.src = data[0].url;
+    img2.src = data[1].url;
+
+    
+   
+  }
+
 }
-const button = document.querySelector("#btnReload")
-button.addEventListener('click', loadRandomMichis)
+
+loadRandomMichis()
