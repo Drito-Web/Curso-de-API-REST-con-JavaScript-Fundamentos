@@ -1,7 +1,7 @@
-    h1{
+    /* h1{
       text-align: center;
-    }
-    
+    } */
+/*     
     section {
       display: flex;
       flex-flow: column nowrap;
@@ -11,8 +11,8 @@
       overflow: hidden;
       margin:0 auto;
       text-align: left;
-    }
-    #btnReload{
+    } */
+    /* #btnReload{
       align-self: flex-start;
       display: flex;
       margin: 0 0 30px 90px;
@@ -22,9 +22,9 @@
       display: flex;
       height: auto;
       flex-flow: column wrap;
-    }
+    } */
 
-    img {
+    /* img {
       width: 187px;
       height: 160px;
       object-fit: cover;
@@ -35,9 +35,9 @@
       &:active {
         transform: scale(1);
       }
-    }
+    } */
 
-    .container-article {
+    /* .container-article {
       text-align: left;
       max-width: 560px;
       width: 560px;
@@ -49,14 +49,14 @@
       gap: 4px;
       margin:auto;
       padding: 30px;
-    }
+    } */
 
-    button {
+    /* button {
       &:hover {
         opacity: 0.9;
       }
-    }
-    .my-box{
+    } */
+    /* .my-box{
       margin: 0;
       padding: 0;
       max-width: 100%;
@@ -68,5 +68,5 @@
       flex-direction: column;
       justify-content: center;
       align-content: center;
-    }
+    } */
     

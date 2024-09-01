@@ -5,70 +5,62 @@ const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourite
 const spanError = document.getElementById('error');
 
 async function loadRandomMichis() { 
-
   const res = await fetch(API_URL_RANDOM);
   const data = await res.json();
-  console.group("Michis Randon 🦊") 
-  console.log('status',res.status);
+  console.log("Michis Randon 🦊") 
   console.log(data);
-  console.groupEnd()
 
   if (res.status != 200) {
     spanError.innerHTML = "hubo un error " + res.status;
   } else {
-
     const img1 = document.querySelector('.img1');
     const img2 = document.querySelector('.img2');
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
     
     img1.src = data[0].url;
     img2.src = data[1].url;
 
-    const btn1 = document.getElementById("btn1");
-    const btn2 = document.getElementById("btn2");
-
-
-    btn1.onclick = () => saveFavoritesMichi(data[ 0 ].id);
-    btn2.onclick = () => saveFavoritesMichi(data[ 1 ].id);
-   
+    btn1.onclick = () => saveFavoriteMichi(data[0].id);
+    btn2.onclick = () => saveFavoriteMichi(data[1].id);
   }
-
 }
+
 async function loadFavoritesMichis() {
-  
   const res = await fetch(API_URL_FAVORITES);
   const data = await res.json();
-  console.group('Favoritos ❤️');
-  console.log('status', res.status);
+  console.log('Favoritos ❤️');
   console.log(data);
   
-  const h2 = document.createElement('h2')
-  h2.innerHTML = 'h';
-  section.append(h2)
-  
   if (res.status != 200) {
-    spanError.innerHTML = "hubo un error " + res.status + data.messege;
-  }else {
-    data.forEach(michis => {
-      const h1 = document.createElement('h1')
-      const section = document.getElementById('MichisFavoritos');
+    spanError.innerHTML = "hubo un error " + res.status +  data.messege;
+  } else {
+
+    const section = document.getElementById('MichisFavoritos');
+    section.innerHTML = "";
+
+    const h2 = document.createElement('h2')
+    const h2Text = document.createTextNode('Michsi favoritos')
+    h2.appendChild(h2Text)
+    section.append(h2)
+
+    data.forEach(michi => {
       const article = document.createElement('div');
       const img = document.createElement('img');
       const btn = document.createElement('button')
+      const btnText = document.createTextNode('Quitar de favoritos  ❌')
 
-      btn.textContent = 'Quitar de favoritos  ❌'
-      img.src = michis.image.url;
-      btn.onclick = deleteFavoriteMichi(michis.id)
+      btn.appendChild(btnText)
+      img.src = michi.image.url;
+      btn.onclick = () => deleteFavoriteMichi(michi.id)
       article.appendChild(img)
       article.appendChild(btn)
-
-      section.append(article)
-    });
-     
+      section.appendChild(article)
+    });   
   }
-  
 }
 
-async function saveFavoritesMichi(id) {
+async function saveFavoriteMichi(id) {
   const res = await fetch(API_URL_FAVORITES, {
     method: 'POST',
     headers: {
@@ -79,23 +71,20 @@ async function saveFavoritesMichi(id) {
     }),
   })
   const data = res.json()
+
   console.log('Save Favorites!');
-  console.log(res);
   console.log(data);
   
-
   if (res.status != 200) {
     spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
-  }else {
+  } else {
     console.log('Michis guardado en favorito');
     loadFavoritesMichis()
-  }
-  
+  } 
 }
 
-
 async function deleteFavoriteMichi(id) {
-  const res = await fetch(API_URL_FAVORITES_DELETE, {
+  const res = await fetch(API_URL_FAVORITES_DELETE(id), {
     method: 'DELETE',
   })
   const data = await res.json()
@@ -104,9 +93,8 @@ async function deleteFavoriteMichi(id) {
     spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
   } else {
     console.log('Michis eliminado de favorito');
-    loadFavoritesMichis()
+    loadFavoritesMichis();
   }
-
 }
 
 loadRandomMichis();

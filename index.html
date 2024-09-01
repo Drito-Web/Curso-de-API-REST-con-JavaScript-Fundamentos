@@ -10,43 +10,32 @@
 </head>
 
 <body>
-  <div class="my-box">
-    
-    <h1>Michis App</h1>
-    <span id="error"></span>
 
-    <section id="randomMichis">
+  <h1>Michis App</h1>
+
+  <span id="error"></span>
+
+  <section id="randomMichis">
+
       <h2>Michis Randon</h2>
-      <div class="container-article">
-        <article>
-          <div>
-            <img alt="Michis" class="img1">
-          </div>
-          <button id="btn1">
-            add to favorites ❤️
-          </button>
-          <div id="mID"></div>
-        </article>
 
-        <article>
-          <div>
-            <img alt="Michis" class="img2">
-          </div>
-          <button id="btn2">
-            add to favorites ❤️
-          </button>
-          <div id="mID2"></div>
-        </article>
+      <article>
+        <img alt="Michis" class="img1">
+        <button id="btn1">add to favorites ❤️</button>
+        <div id="mID"></div>
+      </article>
 
-      </div>
-      <button onclick="loadRandomMichis()" id="btnReload">Cargar Michis 😺</button>
-    </section>
+      <article>
+        <img alt="Michis" class="img2">
+        <button id="btn2">add to favorites ❤️</button>
+        <div id="mID2"></div>
+      </article>
 
-    <section id="MichisFavoritos">
-    </section>
-  
-  </div>
 
+    <button onclick="loadRandomMichis()">Cargar Michis 😺</button>
+  </section>
+
+  <section id="MichisFavoritos"></section>
 
   <script src="./main.js"></script>
 
