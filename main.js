@@ -1,8 +1,10 @@
 const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI`;
 const API_URL_FAVORITES = `https://api.thecatapi.com/v1/favourites`;
+const API_URL_UPLOAD = `https://api.thecatapi.com/v1/images/upload`;
 const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 
-const spanError = document.getElementById('error');
+const spanError = document.getElementById('error')
+spanError.style.color = 'red'
 
 async function loadRandomMichis() { 
   const res = await fetch(API_URL_RANDOM);
@@ -97,10 +99,37 @@ async function deleteFavoriteMichi(id) {
     }
   });
 
-  if (res.status != 200) {
+  if (res.status != 20) {
     spanError.innerHTML = "Hubo un Error en Favoritos " + res.status + data.message;
   } else {
     console.log('Michis eliminado de favorito');
+    loadFavoritesMichis();
+  }
+}
+
+async function uploadMichiPhoto() {
+  const form = document.querySelector('#uploadingForm');
+  const formData = new FormData(form);
+  console.log(formData.get('file'));
+
+  const res = await fetch(API_URL_UPLOAD, {
+    method: 'POST',
+    headers: {
+      'X-API-KEY': 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI',
+    },
+    body: formData,
+  });
+
+  const data = await res.json(); // Esperar la conversión a JSON
+
+  if (res.status != 201) {
+    spanError.innerHTML = `Hubo un Error: "${res.status}" al cargar la foto. Error: ${data.message}`;
+    console.log({ data });
+  } else {
+    console.log('La imagen fue cargada correctamente');
+    console.log({ data });
+    console.log(data.url);
+    saveFavoriteMichi(data.id);
     loadFavoritesMichis();
   }
 }
