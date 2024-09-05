@@ -69,4 +69,14 @@
       justify-content: center;
       align-content: center;
     } */
-    
+    .gridMichis {
+
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      margin: auto;
+      max-width: 700px;
+      width: 500px;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit,minmax(min(200px,100%),1fr));
+    }
