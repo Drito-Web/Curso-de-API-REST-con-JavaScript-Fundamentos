@@ -3,7 +3,7 @@ const api = axios.create({
 });
 api.defaults.headers.common[ 'X-API-KEY' ] = 'live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI';
 
-const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_FpuJzs9h9qXqlkIY6wIWudQciNM4rjaGrSG2XlcZEPJvBD9tkpRXv5FYW5CNH7LI`;
+const API_URL_RANDOM = `https://api.thecatapi.com/v1/images/search?limit=2`;
 const API_URL_FAVORITES = `https://api.thecatapi.com/v1/favourites`;
 const API_URL_UPLOAD = `https://api.thecatapi.com/v1/images/upload`;
 const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
@@ -129,7 +129,7 @@ async function uploadMichiPhoto() {
     body: formData,
   });
 
-  const data = await res.json(); // Esperar la conversión a JSON
+  const data = await res.json(); 
 
   if (res.status != 201) {
     spanError.innerHTML = `Hubo un Error: "${res.status}" al cargar la foto. Error: ${data.message}`;

@@ -1,82 +1,25 @@
-    /* h1{
-      text-align: center;
-    } */
-/*     
-    section {
-      display: flex;
-      flex-flow: column nowrap;
-      max-width: 100%;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      margin:0 auto;
-      text-align: left;
-    } */
-    /* #btnReload{
-      align-self: flex-start;
-      display: flex;
-      margin: 0 0 30px 90px;
-      justify-content: flex-start;
-    }
-    #MichisFavoritos {
-      display: flex;
-      height: auto;
-      flex-flow: column wrap;
-    } */
+img {
+  width: 187px;
+  height: 160px;
+  object-fit: cover;
+  overflow: hidden;
 
-    img {
-      width: 187px;
-      height: 160px;
-      object-fit: cover;
-      overflow: hidden;
-      &:hover {
-        transform: scale(0.98);
-      }
-      &:active {
-        transform: scale(1);
-      }
-    }
+  &:hover {
+    transform: scale(0.98);
+  }
 
-    /* .container-article {
-      text-align: left;
-      max-width: 560px;
-      width: 560px;
-      height: auto;
-      align-items: center;
-      justify-content: space-evenly;
-      display: flex;
-      flex-flow: row wrap;
-      gap: 4px;
-      margin:auto;
-      padding: 30px;
-    } */
+  &:active {
+    transform: scale(1);
+  }
+}
 
-    /* button {
-      &:hover {
-        opacity: 0.9;
-      }
-    } */
-    /* .my-box{
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-      width: 100%;
-      max-height:100% ;
-      height: auto;text-align: center;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
-    } */
-    .gridMichis {
-
-      display: grid;
-      align-content: center;
-      justify-content: center;
-      margin: auto;
-      max-width: 700px;
-      width: 500px;
-      gap: 10px;
-      grid-template-columns: repeat(auto-fit,minmax(min(200px,100%),1fr));
-    }
+.gridMichis {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: auto;
+  max-width: 700px;
+  width: 500px;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+}
